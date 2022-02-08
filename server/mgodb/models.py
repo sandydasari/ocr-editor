@@ -20,3 +20,15 @@ class Book(db.Document):
     noofpages = db.IntField()
     isIndexed = db.BooleanField(default=False)
     category = db.EnumField(Category, default=Category.GENERAL)
+    def to_json(self):
+      json_user = {
+        'bookuuid': self.bookuuid,
+        'title': self.title,
+        'author': self.author,
+        'noofpages': self.noofpages,
+        'fullpath':self.fullpath,
+        'isIndexed':self.isIndexed,
+        'category':self.category
+      }
+
+      return json_user
