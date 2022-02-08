@@ -7,7 +7,7 @@ from libs.storeDoc import addDoctoDirectory
 
 class BooksApi(Resource):
     def get(self):
-        books = Book.objects().exclude("fullpath").to_json()
+        books = Book().to_json()
 
         return Response(books, mimetype="application/json", status=200)
 
